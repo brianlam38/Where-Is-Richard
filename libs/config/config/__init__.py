@@ -42,10 +42,10 @@ class Config(BaseConfiguration):
 class Production(Config):
     # SQL Configuration for Production
     DB_DRIVER = 'postgresql'
-    DB_USERNAME = 'username'
-    DB_PASSWORD = 'password'
+    DB_USERNAME = 'where-is-richard'
+    DB_PASSWORD = 'where-is-richard'
     DB_HOST = '127.0.0.1'
-    DB_DATABASE = ''
+    DB_DATABASE = 'where-is-richard'
     SENTRY_DSN = ''
 
 class Development(Config):
