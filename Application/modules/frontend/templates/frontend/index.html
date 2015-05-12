@@ -1,0 +1,45 @@
+{% extends "frontend/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Report a Sighting</div>
+            <div class="panel-body">
+                <form method="POST">
+                    {{ render_field(form.description, class='form-control') }}
+                    {{ render_field(form.username, class='form-control') }}
+                    {{ form.hidden_tag() }}
+                    {{ render_field(form.submit, class='btn btn-primary btn-block')}}
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Subscribe for Email Updates!</div>
+            <div class="panel-body">
+                <form method="POST">
+                    {{ render_field(email_form.email, class='form-control') }}
+                    {{ email_form.hidden_tag() }}
+                    {{ render_field(email_form.submit, class='btn btn-primary btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">Recent Sightings</div>
+            <div class="panel-body">
+                {% for sighting in sightings %}
+                    <div>
+                        <h4>{{ sighting.location or 'No description was given' }}</h4>
+                        <h6>{{ 'By: ' + sighting.username if sighting.username }} At {{ sighting.date }}</h6>
+
+                    </div>
+                    <hr />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

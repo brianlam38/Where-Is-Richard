@@ -1,0 +1,14 @@
+{% extends "_bases/_base.html" %}
+
+{% block body %}
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    	<div class="login-form">
+    		<h2>{% block formtitle %}{% endblock %}</h2>
+    		<h5>{% block formsubtitle %}{% endblock %}</h5>
+    		<hr />
+    		{% block form_content %}
+    		{% endblock %}
+    	</div>
+    </div>
+{% endblock %}
+{% set active_page = active_page|default('clients') -%}
