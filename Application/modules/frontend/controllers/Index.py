@@ -59,8 +59,7 @@ class Index(FlaskView):
             current_app.db.session.add(sighting)
             current_app.db.session.commit()
 
-            thr = threading.Thread(target=send_email, args=(form.description.data,), kwargs={})
-            thr.start()
+            send_email(form.description.data)
 
             flash('Your sighting has been added!', 'success')
             form = SightingForm(formdata=None)
